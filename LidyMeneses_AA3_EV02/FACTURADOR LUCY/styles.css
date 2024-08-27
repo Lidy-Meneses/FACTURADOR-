@@ -1,0 +1,279 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden; /* Ocultar cualquier contenido que se salga de la pantalla */
+    position: relative; /* Necesario para el contenedor de meteoritos */
+}
+
+/* Contenedor de los meteoritos */
+.meteor-shower {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que los meteoritos estén detrás del formulario */
+    overflow: hidden; /* Para evitar que los meteoritos se vean al pasar por los bordes */
+}
+
+/* Estilo y animación de los meteoritos */
+.meteor-shower .meteor {
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(180deg, #ff9d00, transparent);
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(200px);
+    }
+}
+
+
+
+/* Generación de múltiples meteoritos */
+.meteor-shower .meteor:nth-child(1) { left: 10%; animation-duration: 4s; animation-delay: 0s; }
+.meteor-shower .meteor:nth-child(2) { left: 20%; animation-duration: 3s; animation-delay: 2s; }
+.meteor-shower .meteor:nth-child(3) { left: 30%; animation-duration: 5s; animation-delay: 1s; }
+.meteor-shower .meteor:nth-child(4) { left: 40%; animation-duration: 4.5s; animation-delay: 0.5s; }
+.meteor-shower .meteor:nth-child(5) { left: 50%; animation-duration: 3.5s; animation-delay: 1.5s; }
+.meteor-shower .meteor:nth-child(6) { left: 60%; animation-duration: 5s; animation-delay: 0s; }
+.meteor-shower .meteor:nth-child(7) { left: 70%; animation-duration: 4s; animation-delay: 2s; }
+.meteor-shower .meteor:nth-child(8) { left: 80%; animation-duration: 3.5s; animation-delay: 1s; }
+.meteor-shower .meteor:nth-child(9) { left: 90%; animation-duration: 4.5s; animation-delay: 0.5s; }
+.meteor-shower .meteor:nth-child(10) { left: 100%; animation-duration: 3s; animation-delay: 1.5s; }
+
+/* Resto de los estilos */
+.login-container {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #00ffff;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    background-color: #111;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #00ff00;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffff;
+    color: #111;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #00ff00;
+}
+
+.forgot-password {
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #00ff00;
+}
+
+.error-message {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 5px;
+    animation: shake 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+// segunda pantalla tarjetas  -------------------------------------------------------------------------------------------------------------
+
+/* Estilo para el título de la pantalla */
+.titulo-pantalla {
+    text-align: center; /* Centra el texto */
+    font-size: 3rem; /* Tamaño de fuente más grande para mayor impacto */
+    margin: 2rem 0; /* Margen superior e inferior para separar el título */
+    color: #00e5ff; /* Color de texto azul celeste */
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7); /* Sombra de texto azul */
+}
+
+/* Estilo general para las tarjetas */
+.card {
+    background-color: #000; /* Color de fondo de la tarjeta */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    margin: 1rem; /* Márgenes para el estilo de mosaico */
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Sombra constante azul celeste */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto hover */
+}
+
+/* Imagen de la tarjeta */
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 1rem;
+}
+
+/* Estilo del carrusel */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 80vh; /* Altura ajustada */
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 80%; /* Ajustar según el tamaño deseado */
+    margin: auto;
+    padding: 1rem;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Ocultar barra de desplazamiento en WebKit */
+}
+
+.carousel-item {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    margin: 0 0.5rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.carousel-button.prev {
+    left: 1rem;
+}
+
+.carousel-button.next {
+    right: 1rem;
+}
+
+/* Estilo del contenedor de pago */
+.pay-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Botón de "Pagar" con icono */
+.pay-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #00bfff, #1e90ff); /* Gradiente de color azul celeste */
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.icono-billete {
+    width: 1rem; /* Tamaño del icono */
+    height: auto;
+    margin-right: 0.5rem;
+}
+
+.pay-button:hover {
+    background: linear-gradient(45deg, #1e90ff, #00bfff); /* Efecto de gradiente invertido en hover */
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+}

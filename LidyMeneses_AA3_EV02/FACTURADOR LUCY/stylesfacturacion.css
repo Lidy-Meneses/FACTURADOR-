@@ -1,0 +1,90 @@
+/* General */
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0f0f0f;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Título */
+.titulo-pantalla {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #00e5ff;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    margin: 2rem 0; /* Añadido margen superior e inferior */
+}
+
+/* Tabla */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem; /* Espacio adicional arriba de la tabla */
+}
+
+
+/* Título */
+.titulo-pantalla {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #00e5ff;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    margin-bottom: 2rem;
+}
+
+/* Tabla */
+
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background: #00e5ff;
+    color: #000;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+td {
+    background: #333;
+    border-bottom: 1px solid #444;
+}
+
+tr:nth-child(even) td {
+    background: #2c2c2c;
+}
+
+tr:hover td {
+    background: #444;
+}
+
+/* Estilo de la fila vacía */
+td[colspan="6"] {
+    text-align: center;
+    color: #ff6666;
+    font-style: italic;
+}
+
+/* Efectos adicionales */
+table {
+    transition: box-shadow 0.3s ease;
+}
+
+table:hover {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+}
