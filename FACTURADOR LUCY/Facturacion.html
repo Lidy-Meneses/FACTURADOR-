@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Facturación</title>
+    <link rel="stylesheet" href="stylesfacturacion.css">
+</head>
+<body>
+    <h1 class="titulo-pantalla">RESUMEN DE FACTURACIÓN</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>FECHA DE INICIO</th>
+                <th>HORA</th>
+                <th>JUEGO</th>
+                <th>CANTIDAD</th>
+                <th>VALOR</th>
+                <th>SUBTOTAL</th>
+            </tr>
+        </thead>
+        <tbody id="resumen-facturacion">
+            <!-- Las filas se generarán dinámicamente aquí -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Recuperar datos de localStorage
+            const selectedGames = JSON.parse(localStorage.getItem('selectedGames')) || [];
+
+            // Obtener el contenedor del cuerpo de la tabla
+            const resumenTableBody = document.getElementById('resumen-facturacion');
+
+            // Inicializar variables para resumen
+            let totalCantidad = 0;
+            let totalSubtotal = 0;
+
+            // Verificar si hay juegos seleccionados
+            if (selectedGames.length > 0) {
+                selectedGames.forEach(game => {
+                    // Validar y formatear datos
+                    const valor = typeof game.valor === 'number' ? game.valor : parseFloat(game.valor.replace(/[^\d.-]/g, '')) || 0;
+                    const cantidad = parseInt(game.cantidad, 10) || 0;
+                    const subtotal = valor * cantidad;
+
+                    // Acumuladores
+                    totalCantidad += cantidad;
+                    totalSubtotal += subtotal;
+
+                    // Crear una nueva fila en la tabla
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${game.fechaInicio}</td>
+                        <td>${game.hora}</td>
+                        <td>${game.juego}</td>
+                        <td>${cantidad}</td>
+                        <td>${valor.toFixed(2)}</td>
+                        <td>${subtotal.toFixed(2)}</td>
+                    `;
+                    resumenTableBody.appendChild(row);
+                });
+
+                // Mostrar resumen en la consola
+                console.log(`Total Cantidad: ${totalCantidad}`);
+                console.log(`Total Subtotal: ${totalSubtotal.toFixed(2)}`);
+            } else {
+                // Mostrar un mensaje si no hay juegos seleccionados
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="6">No hay juegos seleccionados.</td>`;
+                resumenTableBody.appendChild(row);
+            }
+        });
+    </script>
+</body>
+</html>

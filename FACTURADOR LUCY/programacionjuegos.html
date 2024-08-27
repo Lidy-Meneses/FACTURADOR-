@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación de Juegos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="titulo-pantalla">SELECCION DE JUEGOS</h1>
+    
+    <div class="carousel-container">
+        <button class="carousel-button prev" onclick="scrollCarousel(-1)">&#10094;</button>
+        <div class="carousel" id="carousel">
+            <!-- Aquí se agregarán las tarjetas dinámicamente -->
+        </div>
+        <button class="carousel-button next" onclick="scrollCarousel(1)">&#10095;</button>
+    </div>
+
+    <div class="pay-container">
+        <!-- Modificar el onclick para que llame a la función pagarYGuardar() -->
+        <button class="pay-button" onclick="pagarYGuardar()">
+            <img src="https://cdn-icons-png.flaticon.com/512/4553/4553984.png" alt="Pagar" class="icono-billete"> Pagar
+        </button>
+        <br>
+    </div>
+
+    <div>
+        <!-- Tu contenido adicional aquí -->
+    </div>
+
+    <div>
+        <!-- Botón para reiniciar las cantidades -->
+        <button class="reset-button" onclick="resetQuantities()">Reiniciar Cantidades</button>
+    </div>
+
+    <script src="tarjetas.js"></script>
+    <script>
+        // Nueva función para guardar datos y redirigir a la página de facturación
+        function pagarYGuardar() {
+            saveSelectedGames(); // Llamar a la función para guardar en localStorage
+            location.href = 'Facturacion.html'; // Redirigir a la página de facturación
+        }
+    </script>
+</body>
+</html>
